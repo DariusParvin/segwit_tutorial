@@ -91,7 +91,7 @@ signature = signing_key.sign_digest(hashed_bip_143, sigencode=ecdsa.util.sigenco
 
 witness = (
     bytes.fromhex("02")
-    + (len(signature)).to_bytes(1, byteorder="little", signed=False)
+    + (len(signature)+ 1).to_bytes(1, byteorder="little", signed=False)
     + signature
     + bytes.fromhex("01")
     + (len(public_key)).to_bytes(1, byteorder="little", signed=False)
