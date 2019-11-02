@@ -208,7 +208,7 @@ witness = (
   (2).to_bytes(1, byteorder="little", signed=False) # Number of items
   + (len(signature) + 1).to_bytes(1, byteorder="little", signed=False) # Size of signature
   + signature # Signature
-  + bytes.fromhex("01") # Separator
+  + bytes.fromhex("01") # One-byte sighash flag ("01" for SIGHASH_ALL)
   + (len(public_key)).to_bytes(1, byteorder="little", signed=False) # Size of public key
   + public_key  # Public key
 )
